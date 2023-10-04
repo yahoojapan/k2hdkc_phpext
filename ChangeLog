@@ -1,3 +1,9 @@
+php-pecl-k2hdkc (1.0.2) unstable; urgency=low
+
+  * Bumpup version
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Wed, 04 Oct 2023 12:25:49 +0900
+
 php-pecl-k2hdkc (1.0.1) unstable; urgency=low
 
   * Updated support OSs and fix bugs - #1
