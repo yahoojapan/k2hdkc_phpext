@@ -18,12 +18,13 @@
 */
 
 #ifndef PHP_K2HDKCPX_H
-# define PHP_K2HDKCPX_H
+#define PHP_K2HDKCPX_H
 
+// cppcheck-suppress missingInclude
 #include "k2hdkc.h"
 #include "config.h"
 
-# define DEFAULT_PORT 8031
+#define DEFAULT_PORT 8031
 
 // cppcheck-suppress unknownMacro
 ZEND_BEGIN_MODULE_GLOBALS(k2hdkcpx);
@@ -45,10 +46,10 @@ void k2hdkcpx_update_property_resource(zend_class_entry* scope, zval* object, co
 
 // # define PHP_K2HDKCPX_VERSION "0.1.0"
 
-# if defined(ZTS) && defined(COMPILE_DL_K2HDKCPX)
+#if defined(ZTS) && defined(COMPILE_DL_K2HDKCPX)
 // cppcheck-suppress unknownMacro
 ZEND_TSRMLS_CACHE_EXTERN()
-# endif
+#endif
 
 #endif	/* PHP_K2HDKCPX_H */
 

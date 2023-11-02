@@ -1,24 +1,14 @@
 #
-# k2hdkc PHP Extension library
-# -----------------------------------------------------------------------
-# K2HASH PHP Extension library
-#
-# Copyright 2022 Yahoo Japan Corporation.
-#
-# K2HASH is key-valuew store base libraries.
-# K2HASH is made for the purpose of the construction of
-# original KVS system and the offer of the library.
-# The characteristic is this KVS library which Key can
-# layer. And can support multi-processing and multi-thread,
-# and is provided safely as available KVS.
-# -----------------------------------------------------------------------
+# K2HDKC PHP Extension library
 #
 # Copyright 2023 Yahoo Japan Corporation.
 #
-# Modified to work with K2HDKC PHP Extension library. The original source 
-# code is from K2HASH PHP Extension library, which is distibuted under
-# MIT License as well as this program. See the LICENSE file for the full
-# copyright and license information.
+# K2HDKC is k2hash based distributed KVS cluster.
+# K2HDKC uses K2HASH, CHMPX, FULLOCK libraries. K2HDKC supports
+# distributed KVS cluster server program and client libraries.
+# 
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
 #
 # AUTHOR:   Takeshi Nakatani
 # CREATE:   Fri, Feb 24 2022
@@ -212,30 +202,6 @@ elif [ "${CI_OSTYPE}" = "ubuntu:20.04" ] || [ "${CI_OSTYPE}" = "ubuntu:focal" ];
 
 	IS_OS_UBUNTU=1
 
-elif [ "${CI_OSTYPE}" = "ubuntu:18.04" ] || [ "${CI_OSTYPE}" = "ubuntu:bionic" ]; then
-	DIST_TAG="ubuntu/bionic"
-	PKG_EXT="deb"
-	PKG_OUTPUT_DIR="packages"
-
-	INSTALLER_BIN="apt-get"
-	UPDATE_CMD="update"
-	UPDATE_CMD_ARG=""
-	INSTALL_CMD="install"
-	INSTALL_CMD_ARG=""
-	INSTALL_AUTO_ARG="-y"
-	INSTALL_QUIET_ARG="-qq"
-	INSTALL_PKG_LIST="git lintian debhelper pkg-config ruby-dev rubygems rubygems-integration procps shtool k2hdkc-dev"
-
-	INSTALL_PHP_PRE_ADD_REPO="ca-certificates apt-transport-https software-properties-common"
-	INSTALL_PHP_REPO="ppa:ondrej/php"
-	INSTALL_PHP_PKG_LIST="dh-php php${PHPVER_WITHPERIOD} php${PHPVER_WITHPERIOD}-dev libapache2-mod-php${PHPVER_WITHPERIOD}"
-	INSTALL_PHP_OPT=""
-	INSTALL_PHP_POST_CONFIG="update-alternatives --set php-config /usr/bin/php-config${PHPVER_WITHPERIOD}"
-	INSTALL_PHP_POST_BIN="update-alternatives --set php /usr/bin/php${PHPVER_WITHPERIOD}"
-	SWITCH_PHP_COMMAND=""
-
-	IS_OS_UBUNTU=1
-
 elif [ "${CI_OSTYPE}" = "debian:12" ] || [ "${CI_OSTYPE}" = "debian:bookworm" ]; then
 	DIST_TAG="debian/bookworm"
 	PKG_EXT="deb"
@@ -405,6 +371,30 @@ elif [ "${CI_OSTYPE}" = "centos:7" ] || [ "${CI_OSTYPE}" = "centos:centos7" ]; t
 
 	IS_OS_CENTOS=1
 
+elif [ "${CI_OSTYPE}" = "fedora:38" ]; then
+	DIST_TAG="fedora/38"
+	PKG_EXT="rpm"
+	PKG_OUTPUT_DIR="packages"
+
+	INSTALLER_BIN="dnf"
+	UPDATE_CMD="update"
+	UPDATE_CMD_ARG=""
+	INSTALL_CMD="install"
+	INSTALL_CMD_ARG=""
+	INSTALL_AUTO_ARG="-y"
+	INSTALL_QUIET_ARG="-q"
+	INSTALL_PKG_LIST="git make diffutils pkgconfig patch yum-utils rpmdevtools redhat-rpm-config rpm-build rpm-devel rpmlint scl-utils-build ruby-devel rubygems procps python3 k2hdkc-devel"
+
+	INSTALL_PHP_PRE_ADD_REPO=""
+	INSTALL_PHP_REPO="https://rpms.remirepo.net/fedora/remi-release-38.rpm"
+	INSTALL_PHP_PKG_LIST="php${PHPVER_NOPERIOD}-php-devel php${PHPVER_NOPERIOD}-scldevel php${PHPVER_NOPERIOD}-build"
+	INSTALL_PHP_OPT=""
+	INSTALL_PHP_POST_CONFIG=""
+	INSTALL_PHP_POST_BIN=""
+	SWITCH_PHP_COMMAND="scl enable php${PHPVER_NOPERIOD} --"
+
+	IS_OS_FEDORA=1
+
 elif [ "${CI_OSTYPE}" = "fedora:37" ]; then
 	DIST_TAG="fedora/37"
 	PKG_EXT="rpm"
@@ -421,30 +411,6 @@ elif [ "${CI_OSTYPE}" = "fedora:37" ]; then
 
 	INSTALL_PHP_PRE_ADD_REPO=""
 	INSTALL_PHP_REPO="https://rpms.remirepo.net/fedora/remi-release-37.rpm"
-	INSTALL_PHP_PKG_LIST="php${PHPVER_NOPERIOD}-php-devel php${PHPVER_NOPERIOD}-scldevel php${PHPVER_NOPERIOD}-build"
-	INSTALL_PHP_OPT=""
-	INSTALL_PHP_POST_CONFIG=""
-	INSTALL_PHP_POST_BIN=""
-	SWITCH_PHP_COMMAND="scl enable php${PHPVER_NOPERIOD} --"
-
-	IS_OS_FEDORA=1
-
-elif [ "${CI_OSTYPE}" = "fedora:36" ]; then
-	DIST_TAG="fedora/36"
-	PKG_EXT="rpm"
-	PKG_OUTPUT_DIR="packages"
-
-	INSTALLER_BIN="dnf"
-	UPDATE_CMD="update"
-	UPDATE_CMD_ARG=""
-	INSTALL_CMD="install"
-	INSTALL_CMD_ARG=""
-	INSTALL_AUTO_ARG="-y"
-	INSTALL_QUIET_ARG="-q"
-	INSTALL_PKG_LIST="git make diffutils pkgconfig patch yum-utils rpmdevtools redhat-rpm-config rpm-build rpm-devel rpmlint scl-utils-build ruby-devel rubygems procps python3 k2hdkc-devel"
-
-	INSTALL_PHP_PRE_ADD_REPO=""
-	INSTALL_PHP_REPO="https://rpms.remirepo.net/fedora/remi-release-36.rpm"
 	INSTALL_PHP_PKG_LIST="php${PHPVER_NOPERIOD}-php-devel php${PHPVER_NOPERIOD}-scldevel php${PHPVER_NOPERIOD}-build"
 	INSTALL_PHP_OPT=""
 	INSTALL_PHP_POST_CONFIG=""

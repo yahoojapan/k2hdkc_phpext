@@ -1,27 +1,14 @@
 #
-# k2hdkc PHP Extension library
-# -----------------------------------------------------------------------
-# Utility tools for building configure/packages by AntPickax
+# K2HDKC PHP Extension library
 #
-# Copyright 2022 Yahoo Japan Corporation.
-#
-# AntPickax provides utility tools for supporting autotools
-# builds.
-#
-# These tools retrieve the necessary information from the
-# repository and appropriately set the setting values of
-# configure, Makefile, spec,etc file and so on.
-# These tools were recreated to reduce the number of fixes and
-# reduce the workload of developers when there is a change in
-# the project configuration.
-# -----------------------------------------------------------------------
-# 
 # Copyright 2023 Yahoo Japan Corporation.
 #
-# Modified to work with K2HDKC PHP Extension library. The original source 
-# code is from K2HASH PHP Extension library, which is distibuted under
-# MIT License as well as this program. See the LICENSE file for the full
-# copyright and license information
+# K2HDKC is k2hash based distributed KVS cluster.
+# K2HDKC uses K2HASH, CHMPX, FULLOCK libraries. K2HDKC supports
+# distributed KVS cluster server program and client libraries.
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
 #
 # AUTHOR:   Takeshi Nakatani
 # CREATE:   Fri, Feb 24 2022
@@ -74,8 +61,8 @@ jobs:
           - rockylinux:9
           - rockylinux:8
           - centos:centos7
+          - fedora:38
           - fedora:37
-          - fedora:36
           - alpine:3.18
 
         php:
