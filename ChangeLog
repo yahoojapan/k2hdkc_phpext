@@ -1,3 +1,9 @@
+php-pecl-k2hdkc (1.0.5) unstable; urgency=low
+
+  * Updated github actions tools and Changed support OS/PHP - #8
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Fri, 15 Mar 2024 18:44:32 +0900
+
 php-pecl-k2hdkc (1.0.4) unstable; urgency=low
 
   * Fixed phpext_helper.sh for ruby and shellcheck and PHP repos - #6
