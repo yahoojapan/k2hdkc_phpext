@@ -20,6 +20,7 @@
 /* This is a generated file, edit the .stub.php file instead.
  * Stub hash: 0a22cec1d02ec5be6ad60fc69b129d39cca236fa */
 
+// cppcheck-suppress unknownMacro
 ZEND_BEGIN_ARG_INFO_EX(arginfo_k2hdkcpx_open, 0, 0, 1)
 	ZEND_ARG_TYPE_INFO(0, config_file, IS_STRING, 0)
 	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, port, IS_LONG, 0, "8031")

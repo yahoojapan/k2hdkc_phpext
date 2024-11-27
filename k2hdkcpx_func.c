@@ -27,7 +27,7 @@
 // cppcheck-suppress missingInclude
 #include "ext/standard/info.h"
 #include "php_k2hdkcpx.h"
-#include "k2hdkcpx_compat.h"
+#include "k2hdkcpx_arginfo.h"
 
 /* For compatibility with older PHP versions */
 #ifndef ZEND_PARSE_PARAMETERS_NONE
